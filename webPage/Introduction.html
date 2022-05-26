@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="./reset.css">
+
+</head>
+<style>
+    body{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: lightsteelblue;
+        }
+
+    .navy-wrapper{
+        width: 100%;
+        background-color: grey;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .tab li{
+        float: left;
+        margin-left: 150px;
+    }
+    .tab a{
+        color:lightblue;
+        font-size: 17pt;
+    }
+    .tab a:hover{color: mintcream;}
+
+    /* dropdown */
+    .dropdown-content{
+        height: fit-content;
+        background-color: white;
+        border: rgb(204, 204, 204) solid 1px;
+        display: none;
+        /* avoid impact on its parent */
+        position: absolute; 
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        z-index: 6;
+    }
+    .dropdown:hover .dropdown-content{
+        display: block;}
+    .dropdown-content a{
+        display: block;
+        width: 120px;
+        font-size: 14pt;
+        color: grey;
+        border-top: rgb(204, 204, 204) solid 1px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.3)
+    }
+    .dropdown-content a:hover{color: black;}
+
+    .dropdown-content2{
+        height: fit-content;
+        background-color: white;
+        border: rgb(204, 204, 204) solid 1px;
+        display: none;
+        /* avoid impact on its parent */
+        position:absolute; 
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        z-index: 6;
+        left: 101%;
+        top:0;
+    }
+
+    .dropdown2:hover .dropdown-content2{
+    display: block;} 
+
+    .main{
+        width: 100%;
+        height: 500px;
+        float: left;
+        font-size: 17pt;
+    }
+    .intro{
+        width :1000px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 40px;
+    }
+    
+    .main img{
+            box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.4);
+            border-radius: 5mm;}
+    
+</style>
+
+<body>
+    <div class="header">
+        <img src="./pic/header_uber.png" alt="header_pic" width="100%" height="300px">
+    </div>
+
+    <div class="navy-wrapper">
+        <div class="navy">
+            <ul class="tab">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="./Introduction.html">Introduction</a>
+                </li>
+
+
+                <li>
+                    <a href="./EDA.html">Data Exploring</a>
+                </li>
+
+                <li class="dropdown">
+                    <div class="dropdown-tab">
+                        <a href="javascript:;">Modeling</a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="./RF.html">Tree</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">Conclusion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="intro">
+            <img src = "./pic/intro_pic.jpeg" alt="header_pic" width="600px" height="300px">
+            <br><br>
+            <p>
+                New York is one of the most populous cities in the world, with a vast transportation system, including very high demand for taxi service.
+            </p>
+            <br>
+            <p>
+                The portfolio focuses on the demand for taxi service in New York city, including Uber, lyft and other for-hire-vehicles. 
+                Thanks to TLC website(Taxi and Limousin Commission), on which the taxi trip record in New York is available to the public. 
+                It provides the passenger pick-up point, destination and time records of New York taxi and other for-hire-vehicles in the past 6 years.
+            </p>
+            <br>
+            <p>
+                The goal is to predict densidy of taxi service demand in New York that varies with location and time. 
+            Specifictly, given a location, date and time period, are we able to predict the number of pick-ups in that location?
+            </p>
+            <br>
+            <p>
+               Demand prediction is of significant use for the public. 
+               <br> 
+               For taxi companies, it provides data-based stretagies to allocate cars into different location in specific time period so as to maximize the utilization rate.
+               <br>
+               For traffic planners, damand prediction is an important tool to assist traffic management on specific day, time and location.
+               <br> 
+            </p>
+            <br>
+            <br><br>
+            <p>
+                 Machine learning methods will be utilized to do demand perdiction given location, time of day, and will be futher improved by incooperating features like climate data, vacations etc.
+            </p>
+            <br><br><br><br>
+        
+                  
+        </div>
+    </div>
+</body>
+</html>

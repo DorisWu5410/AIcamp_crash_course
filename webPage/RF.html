@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Exploring</title>
+    <link rel="stylesheet" href="reset.css">
+
+</head>
+<style>
+    body{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: lightsteelblue;
+        }
+
+    .navy-wrapper{
+        width: 100%;
+        background-color: grey;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .tab li{
+        float: left;
+        margin-left: 150px;
+    }
+    .tab a{
+        color:lightblue;
+        font-size: 17pt;
+    }
+    .tab a:hover{color: mintcream;}
+
+    /* dropdown */
+    .dropdown-content{
+        height: fit-content;
+        background-color: white;
+        border: rgb(204, 204, 204) solid 1px;
+        display: none;
+        /* avoid impact on its parent */
+        position: absolute; 
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        z-index: 6;
+    }
+    .dropdown:hover .dropdown-content{
+        display: block;}
+    .dropdown-content a{
+        display: block;
+        width: 120px;
+        font-size: 14pt;
+        color: grey;
+        border-top: rgb(204, 204, 204) solid 1px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.3)
+    }
+    .dropdown-content a:hover{color: black;}
+    
+    .dropdown-content2{
+        height: fit-content;
+        background-color: white;
+        border: rgb(204, 204, 204) solid 1px;
+        display: none;
+        /* avoid impact on its parent */
+        position:absolute; 
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        z-index: 6;
+        left: 101%;
+        top:0;
+    }
+
+    .dropdown2:hover .dropdown-content2{
+    display: block;} 
+    
+    .main{
+        width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px}
+
+    .intro{width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        font-size: 16pt;
+    }
+
+    .map{width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+    .main p{
+        font-size: 17pt;
+    }
+    a{font-size: 15pt;}
+    .main li{
+        list-style-type: circle;
+        font-size: 17pt;
+    }
+    h1{font-size: 24pt; }
+    h2{font-size: 21pt;}
+
+    .main img{
+        box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.4);
+        border-radius: 5mm;}
+
+</style>
+
+<body>
+    <div class="header">
+        <img src="./pic/header_uber.png" alt="header_pic" width="100%" height="300px">
+    </div>
+
+    <div class="navy-wrapper">
+        <div class="navy">
+            <ul class="tab">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="./Introduction.html">Introduction</a>
+                </li>
+
+
+                <li>
+                    <a href="./EDA.html">Data Exploring</a>
+                </li>
+
+                <li class="dropdown">
+                    <div class="dropdown-tab">
+                        <a href="javascript:;">Modeling</a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="./RF.html">Tree</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">Conclusion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <h1>Decision Tree</h1>
+        <br><br>
+        <div class="descrip">
+            <h2>Description</h2>
+            <br>
+            <p>
+                Traffic density has always drawn much attention from the public. 
+                In this section, methods based on decision tree are utilized to predict density of taxi demand in each taxi zones at a specific time.
+            </p>
+            <br>
+        </div>
+        <br><br>
+        <div class="data">
+            <br>
+            <h2>Data Preparing</h2>
+            <br>
+            <ul>
+                <li>
+                    The goal is to predict the average taxi demand in each taxi zones within a month in each period of time in a day of week, eg. Monday 13:00:00.
+                </li>
+                <br>
+                <li>
+                    The test set is service record in 2019-08. The training set is service records in 2019-07 six months with resampling.
+                </li>
+                <br>
+                <li>
+                    The input features are pick-up latitude, pick-up longitude, time point, day of week, and the responser is the averge count of service (scaled to 1 to 13) of the corresponding feature value within a month.
+                </li>
+                <br>
+            
+
+                
+
+            </ul>
+        </div>
+        <br><br><br><br>
+        <h2>Tree Fitting</h2>
+            <br>
+            <ul>
+                <li>
+                    Four decision trees are fitted with four different random subsets of the train set. 
+                </li>
+                <br>
+                <li>
+                    The puning parameter is chosen by grid search.
+                </li>
+                <br>
+                <li>
+                    Tree plot are shown in the links below.
+                    <br> 
+                <a href="./picture/Mytree1.png" target="_blank">Tree1</a><br>
+            
+                </li>
+                <br>
+                <li>
+                    The location variables(PU_lat and PU_long) are most frequently used as split.
+                    It confirms that there are some splits that have strong determinant power.  
+                </li>
+                <br><br>
+                <li>
+                    Remind that the goal is to predict the average service demand. 
+                    Using record data in 2018-08, the averge service demand with corresponding pickup location, time point, day of week are calculated (rounded to integer).
+                    Each of them forms one data point in the test set. <br>
+                
+                </li>
+                <br><br>
+    
+                <li>
+                    We could see that the trend is almmost consistent with the true value. 
+                    However, we observe that the prediction suffur from large variance.
+                </li>
+                <br><br><br><br>
+                
+            </ul>
+
+
+
+        <div class="DT">
+            <br>
+
+                <h2>Random forest</h2>
+                <br>
+                <p>
+                    Since decision tree always suffer from large variance, bagging method always be used to lower the variance under the assumption that 
+                    results from those trees are hardly correlated. However, since those tree are fitte with resampling of the original train set, they will look similar. 
+                    Hence all the predictions from the bagged trees will be highly correlated. Averaging many highly correlated quantities does not lead to a large variance deduction.
+                </p>
+                <br><br>
+                <p>
+                    Random forest cope it with small tweak that decorrelate the trees: 
+                    <br>
+                    <ul>
+                        <li>
+                            each time a split is considered, a random selection of m predictors is chosen as split candidates from the full set of p predictors.
+                        </li>
+                        <li>
+                            The split is allowed to use only one of those m predictors. 
+                        </li>
+                        <li>
+                            A fresh selection of m predicton is taken at each split.
+                        </li>
+                    </ul>
+                </p>
+                <br><br>
+                <p>
+                    Use random forest to fit the data, with 100 trees, puning parameter of 0.00015, max_feature = p^0.5 = 2.
+                </p>
+                <br>
+                
+                <br><br><br>
+            
+            
+                <p>By using random forest, the predicton variance is reduced. </p>
+                <br>
+                <p>The MSE for decision tree is 0.5878</p>
+                <br>
+                <p>The MSE for random forest is 0.5607</p>
+               
+
+            </div>
+            <br><br><br><br>
+
+            <div class="visualize">
+                <h2>Visualization on map</h2>
+                
+                <br>
+                <p>
+                    Draw the prediction result compared with the true value on map with timestamp.
+                </p>
+                <br>
+                
+                <p>The left map is the predicted. The right is the true value.</p>
+                <br><br><br>
+                <p>Decision tree with bagging</p>
+                <br>
+                <iframe src="./map_page/DTmap_.html" frameborder="0" width=1000px height = 700px></iframe>
+                <br><br><br>
+                <p>Random forest</p>
+                <br>
+                <iframe src="./map_page/rfmap_.html" frameborder="0" width=1000px height = 700px></iframe>
+            <br><br><br>
+            <p>
+                Predicting the average service demand density corresponding to location, time and day of week can help taxi company to foresee the demand status based on previous data
+                so as to make resonable resource alloccation.
+            </p>
+            <br>
+            <p>
+                However, the prediction still fails to capture many detailed changes, especially case when large demand suddenly occurs in a zone that is not popular.  
+            </p>
+            <br>
+            <ul>
+                
+                <p>Ideas to improve</p>
+                <br>
+                <li>
+                    Use data in the same month last year as train set. 
+                </li>
+                <br>
+                <li>
+                    Discretize the location, preventing confusion in regions with dense taxi zones.
+                </li>
+                <br>
+                <li>
+
+                </li>
+            </ul>
+            </div>
+            <br><br><br>
+            
+
+
+            
+            
+        </div>
+    </div>
+    <br><br><br><br>
+</body>
+</html>

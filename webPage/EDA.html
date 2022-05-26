@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Data Analysis</title>
+    <link rel="stylesheet" href="./reset.css">
+
+</head>
+
+<style>
+    body{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: lightsteelblue;
+        }
+
+    .navy-wrapper{
+        width: 100%;
+        background-color: grey;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .tab li{
+        float: left;
+        margin-left: 150px;
+    }
+    .tab a{
+        color:lightblue;
+        font-size: 17pt;
+    }
+    .tab a:hover{color: mintcream;}
+
+    /* dropdown */
+    .dropdown-content{
+        height: fit-content;
+        background-color: white;
+        border: rgb(204, 204, 204) solid 1px;
+        display: none;
+        /* avoid impact on its parent */
+        position: absolute; 
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        z-index: 6;
+    }
+    .dropdown:hover .dropdown-content{
+        display: block;}
+    .dropdown-content a{
+        display: block;
+        width: 120px;
+        font-size: 14pt;
+        color: grey;
+        border-top: rgb(204, 204, 204) solid 1px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.3)
+    }
+    .dropdown-content a:hover{color: black;}
+
+    .main{
+        width: 1400px;
+
+        margin-left: auto;
+        margin-right: auto}
+
+    .intro{width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        font-size: 16pt;
+    }
+
+    .map{width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+    .main p{
+        font-size: 17pt;
+    }
+    a{font-size: 15pt;}
+    
+    .main li{list-style-type: circle;}
+    h1{font-size: 24pt;}
+
+    .main img{
+        box-shadow: 20px 20px 20px rgba(0.5, 0, 0, 0.4);
+        border-radius: 5mm;}
+
+</style>
+
+<body>
+    <div class="header">
+        <img src="./pic/header_uber.png" alt="header_pic" width="100%" height="300px">
+    </div>
+
+    <div class="navy-wrapper">
+        <div class="navy">
+            <ul class="tab">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="./Introduction.html">Introduction</a>
+                </li>
+
+
+                <li>
+                    <a href="./EDA.html">Data Exploring</a>
+                </li>
+
+                <li class="dropdown">
+                    <div class="dropdown-tab">
+                        <a href="javascript:;">Modeling</a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="./RF.html">Tree</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">Conclusion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class='intro'><br>
+            <h1>Data Exploring</h1><br>
+            <br><br>
+            <img src="./picture/count_plot.png" alt="countplot"><br><br>
+            <p>The line plot shows the number of service of three type of car from 2014 to 2020 </p>
+            <a href="https://github.com/DorisWu5410/501protfolio/blob/main/cleaning_R.R">See the code for line plot here</a>
+            <br><br><br><br>
+
+
+            <h1>Data exploring on map</h1><br>
+            <br><br>
+            <p>
+                The map shows density of taxi service demand in NY in 2019-07-02 which chages overtime. 
+            </p>
+            <iframe src="./pic/07_02_2019.html" frameborder="0" width=800px height=600px></iframe>
+            
+            <br>
+            <ul>
+                <li> Shapes on map shows the pick up location(in taxi zone id) of each car service.</li>
+                <li> All data points are time-stamped.</li>
+                <li> Color intensity indicates the pich up demand quantity.</li>
+               
+        
+            </ul>
+
+            <br><br>
+            
+        </div>
+
+        
+    </div>
+</body>
+</html>
