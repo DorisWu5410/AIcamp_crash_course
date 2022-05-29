@@ -190,12 +190,12 @@
                     The puning parameter is chosen by grid search.
                 </li>
                 <br>
-                <li>
+                <!-- <li>
                     Tree plot are shown in the links below.
                     <br> 
-                <a href="./picture/Mytree1.png" target="_blank">Tree1</a><br>
+                <a href="./picture/Mytree1.png" target="_blank">Tree1</a><br> -->
             
-                </li>
+                <!-- </li> -->
                 <br>
                 <li>
                     The location variables(PU_lat and PU_long) are most frequently used as split.
@@ -204,7 +204,7 @@
                 <br><br>
                 <li>
                     Remind that the goal is to predict the average service demand. 
-                    Using record data in 2018-08, the averge service demand with corresponding pickup location, time point, day of week are calculated (rounded to integer).
+                    Using record data in 2019-08, the averge service demand with corresponding pickup location, time point, day of week are calculated (rounded to integer).
                     Each of them forms one data point in the test set. <br>
                 
                 </li>
@@ -266,6 +266,12 @@
             <br><br><br><br>
 
             <div class="visualize">
+
+                <h2>Prediction Result</h2>
+                <br>
+                <iframe src="./pic/scatter.html" frameborder="0" width=1000px height = 700px></iframe>
+
+
                 <h2>Visualization on map</h2>
                 
                 <br>
@@ -276,13 +282,9 @@
                 
                 <p>The left map is the predicted. The right is the true value.</p>
                 <br><br><br>
-                <p>Decision tree with bagging</p>
-                <br>
-                <iframe src="./map_page/DTmap_.html" frameborder="0" width=1000px height = 700px></iframe>
-                <br><br><br>
                 <p>Random forest</p>
                 <br>
-                <iframe src="./map_page/rfmap_.html" frameborder="0" width=1000px height = 700px></iframe>
+                <iframe src=".pic/dual_test.html" frameborder="0" width=1000px height = 700px></iframe>
             <br><br><br>
             <p>
                 Predicting the average service demand density corresponding to location, time and day of week can help taxi company to foresee the demand status based on previous data
